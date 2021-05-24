@@ -1,6 +1,7 @@
 package cn.deveye.learning.rocketmq.simple;
 
 
+import cn.deveye.learning.rocketmq.Constants;
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
@@ -13,7 +14,7 @@ public class Consumer {
     public static void main(String[] args) throws Exception {
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("test_consumer");
         //这里设置NamesrvAddress
-        consumer.setNamesrvAddr("39.105.157.176:9876");
+        consumer.setNamesrvAddr(Constants.NAME_SRV_ADDR);
 
         //订阅Topic 要消费那些消息
         consumer.subscribe("Topic_test", "*");
