@@ -10,11 +10,11 @@ public class SyncProducer {
 
     public static void main(String[] args) throws MQClientException, InterruptedException {
         final DefaultMQProducer defaultMQProducer = new DefaultMQProducer("test_producer");
-
+        //这里设置NamesrvAddress
         defaultMQProducer.setNamesrvAddr("39.105.157.176:9876");
         defaultMQProducer.start();
 
-
+        //启动10个线程使用producer不停的发消息
         for (int i = 0; i < 10; i++) {
             new Thread(() -> {
                 while (true) {
